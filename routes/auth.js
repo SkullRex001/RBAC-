@@ -1,4 +1,5 @@
 const express = require('express')
+const RegisterUser = require('../models/user')
 const router = express.Router()
 
 router.get('/login' , (req , res)=>{
@@ -15,8 +16,8 @@ router.get('/register' , (req , res)=>{
 })
 
 
-router.post('/register' , (req , res)=>{
-    res.send('register-post')
+router.post('/register' , RegisterUser, (req , res)=>{
+    res.send('done')
 } )
 
 router.get('/logout' , (req , res)=>{

@@ -1,13 +1,10 @@
 <%- include('./layouts/header') %>
 
 <div class="register-container">
-    <form>
+    <form action="http://localhost:3000/auth/register" method="post">
       <h2>Register</h2>
       <label for="username">Username:</label>
       <input type="text" id="username" name="username" required>
-  
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
   
       <label for="password">Password:</label>
       <input type="password" id="password" name="password" required>
