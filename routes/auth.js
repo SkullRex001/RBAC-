@@ -12,7 +12,9 @@ router.post('/login' , (req , res)=>{
 } )
 
 router.get('/register' , (req , res)=>{
-    res.render('register.ejs')
+    const message = req.flash('error')
+    const message2 = req.flash('success')
+    res.render('register.ejs' , {message : message , message2 : message2})
 })
 
 

@@ -17,16 +17,17 @@ async function RegisterUser( req , res, next) {
         console.log(UserExist)
     
         if(UserExist) {
+            req.flash('error' , "user already exist")
+            res.redirect('/auth/register')
     
-             return res.send('user-Exist')
         }
     
         else{
            await User.create({
                 username , password
             })
-    
-            next()
+            req.flash('success' , 'account created')
+            res.redirect('/auth/register')
         }
 
     }
@@ -39,3 +40,5 @@ async function RegisterUser( req , res, next) {
 }
 
 module.exports = RegisterUser
+
+//Note :- Hashing left
