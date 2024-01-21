@@ -41,9 +41,6 @@ app.use(session({
 
 app.use(connectFlash())
 
-
-
-
 app.use('/' , require('./routes/index'))
 app.use('/auth' , require('./routes/auth'))
 app.use('/user' , require('./routes/user'))

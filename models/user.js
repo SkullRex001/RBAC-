@@ -17,7 +17,7 @@ async function RegisterUser( req , res, next) {
         console.log(UserExist)
     
         if(UserExist) {
-            req.flash('error' , "user already exist")
+            req.flash('message3' , "user already exist")
             res.redirect('/auth/register')
     
         }
@@ -26,7 +26,7 @@ async function RegisterUser( req , res, next) {
            await User.create({
                 username , password
             })
-            req.flash('success' , 'account created')
+            req.flash('message4' , 'account created')
             res.redirect('/auth/register')
         }
 
