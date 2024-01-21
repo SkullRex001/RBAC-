@@ -1,7 +1,7 @@
 const zod = require('zod');
 
 const UsernameSchema = zod.string().min(6, "username too small {min: 6}");
-const PasswordSchema = zod.string({ required_error: "password is required" }).min(5, "password too small");
+const PasswordSchema = zod.string({ required_error: "password is required" }).min(5, "password too small").max(30 , "password too big");
 
 function InputValidation(req, res, next) {
     let username = req.body.username;
@@ -24,12 +24,11 @@ function InputValidation(req, res, next) {
     }
 
     if (InputErrors.length > 0) {
-        req.flash('message', InputErrors[0]);
-        req.flash('message2', InputErrors[1]);
-
+        InputErrors.forEach((error)=>{
+            req.flash('SchemaError', error);
+        })
         res.redirect('/auth/register');
     } else {
-        console.log('hii');
         next();
     }
 }

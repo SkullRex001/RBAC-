@@ -1,14 +1,7 @@
-
 <% if (message) { %>
-    <p class="flash-error"><%= message %></p>
+    <% Object.keys(message).forEach((key)=>{ %>
+        <%  message[key].forEach((flash)=>{ %>
+            <p class="flash-error"><%= flash %></p>
+            <%  }) %>
+        <%  }) %>
 <% } %>
-<% if (message2) { %>
-    <p class="flash-success"><%= message2 %></p>
-<% } %>
-<% if (message3) { %>
-    <p class="flash-success"><%= message3 %></p>
-<% } %>
-<% if (message4) { %>
-    <p class="flash-success"><%= message4 %></p>
-<% } %>
-
