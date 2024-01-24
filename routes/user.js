@@ -3,7 +3,8 @@ const { isAuth } = require('../utils/isAuth')
 const router = express.Router()
 
 router.get('/' , isAuth, (req , res)=>{
-    res.render('profile.ejs')
+    const user = req.user
+    res.render('profile.ejs' , {user})
 })
 
 

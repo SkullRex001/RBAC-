@@ -133,6 +133,42 @@ body {
 }
 
 
+.user-info-container {
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-top: 20px; 
+  
+  
+}
+
+.user-info-container-text {
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-top: 20px; 
+  font-weight: bold;
+
+}
+
+.user-info-container-text-topdiv {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  
+
+ 
+}
+
+
 
 
   

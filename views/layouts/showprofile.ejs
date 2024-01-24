@@ -1,0 +1,24 @@
+<% if (user) { %>
+    <div class="user-info-container-text-topdiv">
+    <div class="user-info-container-text">
+         UserId:-
+    </div>
+    <div class="user-info-container">
+        <%= user._id %>
+    </div>
+
+    <div class="user-info-container-text">
+        Username
+   </div>
+    <div class="user-info-container">
+        <%= user.username %>
+    </div>
+
+    <div class="user-info-container-text">
+        Password
+   </div>
+    <div class="user-info-container">
+        <%= user.password %>
+    </div>
+</div>
+<% } %>
