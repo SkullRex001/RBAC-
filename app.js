@@ -51,6 +51,11 @@ app.use(passport.initialize())
 app.use(passport.session())
 require('./utils/passport')
 
+app.use((req , res, next)=>{
+    res.locals.user = req.user
+    next()
+})  //rethink this
+
 app.use( (req , res , next)=>{
     console.log(req.session)
     console.log(req.user)

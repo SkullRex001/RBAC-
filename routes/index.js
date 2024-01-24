@@ -1,7 +1,8 @@
 const express = require('express')
+const { isNotAuth } = require('../utils/isNotAuth')
 const router = express.Router()
 
-router.get('/' , (req , res)=>{
+router.get('/' , isNotAuth ,(req , res)=>{
    res.render('index.ejs') 
 })
 
