@@ -3,7 +3,9 @@ const httpErrors = require('http-errors')
 const morgan = require('morgan')
 const mongoose = require('mongoose')
 const session = require('express-session')
+const MongoSession = require('connect-mongo')(session)
 const connectFlash = require('connect-flash')
+const passport = require('passport')
 require('dotenv').config()
 const app = express()
 app.use(express.json())
@@ -28,16 +30,32 @@ mongoose.connect(process.env.MONGO + 'RBAC2').then(()=>{
     
 })
 
+const store = new MongoSession({
+    mongooseConnection :mongoose.connection,
+    collection : 'session'
+})
+
 app.set('view-engine' , 'ejs')
 app.use(session({
     secret : process.env.SECREAT,
     resave : false,
     saveUninitialized : false,
+    store : store,
     cookie : {
         httpOnly : true
     }
 
 }))
+
+app.use(passport.initialize())
+app.use(passport.session())
+require('./utils/passport')
+
+app.use( (req , res , next)=>{
+    console.log(req.session)
+    console.log(req.user)
+    next()
+})
 
 app.use(connectFlash())
 

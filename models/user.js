@@ -39,6 +39,6 @@ async function RegisterUser( req , res, next) {
     
 }
 
-module.exports = RegisterUser
+module.exports = {RegisterUser , User}
 
 //Note :- Hashing left
